@@ -1,13 +1,7 @@
 import debounce from './debounce.js';
+import ScrollWindow from './ui/scroll-window.js';
 
-const scrollWindow = document.getElementById('scrolling-window');
+// Add scroll window
+new ScrollWindow('debounce-test');
 
-// Scroll event without debounce
-scrollWindow.addEventListener('scroll', function(){
-		console.log('scrolled window');
-});
-
-// Scroll event with debounce
-scrollWindow.addEventListener('scroll', debounce(function(){
-	console.log('debounced scrolled window');
-}, 500));
+// Add event tally display
