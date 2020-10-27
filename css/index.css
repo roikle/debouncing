@@ -1,11 +1,17 @@
-#scrolling-window {
+#debounce-test #scrolling-window {
 	width: 500px;
 	height: 500px;
 	overflow-y: scroll;
 }
 
-#scrolling-window .row {
+#debounce-test #scrolling-window .row {
 	min-height: 100px;
 	max-height: 100px;
 	height: 100px;
+}
+
+#debounce-test .counter-display .regular-counter {
+	width: 500px;
+	min-width: 500px;
+	max-width: 500px;
 }
