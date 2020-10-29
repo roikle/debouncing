@@ -12,8 +12,12 @@ export default class ScrollWindow {
 	 * @param {string} containerId - Container Id for the scroll window. 
 	 */
 	constructor(containerId) {
+		const context = this;
+		this.debounceDelay = 500;
 		this.containerId = containerId;
 		this.scrollWindow;
+		this.regularScrollEvent = new Event('increment-regular-count');
+		this.debounceScrollEvent = new Event('increment-debounce-count');
 
 		this.addScrollWindow();
 
@@ -21,14 +25,14 @@ export default class ScrollWindow {
 		if (this.scrollWindow) {
 			
 			// Scroll event without debounce
-			this.scrollWindow.addEventListener('scroll', function(){
-					console.log('scrolled window');
+			this.scrollWindow.addEventListener('scroll', function() {
+				document.dispatchEvent(context.regularScrollEvent);
 			});
 
 			// Scroll event with debounce
-			this.scrollWindow.addEventListener('scroll', debounce(function(){
-				console.log('debounced scrolled window');
-			}, 500));
+			this.scrollWindow.addEventListener('scroll', debounce(function() {
+				document.dispatchEvent(context.debounceScrollEvent);
+			}, this.debounceDelay));
 		}
 	}
 

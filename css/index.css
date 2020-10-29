@@ -10,7 +10,7 @@
 	height: 100px;
 }
 
-#debounce-test .counter-display .regular-counter {
+#debounce-test .counter-display {
 	width: 500px;
 	min-width: 500px;
 	max-width: 500px;
